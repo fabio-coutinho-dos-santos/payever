@@ -7,13 +7,13 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('Invite API')
+    .setTitle('Payover-Api')
     .setDescription('')
     .setVersion('1.0')
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api/doc', app, document);
+  SwaggerModule.setup('api/v1/doc', app, document);
   // app.useGlobalPipes(new ValidationPipe({whitelist: true, forbidNonWhitelisted: true}))
   app.useGlobalPipes(new ValidationPipe());
   app.useLogger(Logger);

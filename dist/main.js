@@ -7,13 +7,13 @@ const common_1 = require("@nestjs/common");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     const config = new swagger_1.DocumentBuilder()
-        .setTitle('Invite API')
+        .setTitle('Payover-Api')
         .setDescription('')
         .setVersion('1.0')
         .addBearerAuth()
         .build();
     const document = swagger_1.SwaggerModule.createDocument(app, config);
-    swagger_1.SwaggerModule.setup('api/doc', app, document);
+    swagger_1.SwaggerModule.setup('api/v1/doc', app, document);
     app.useGlobalPipes(new common_1.ValidationPipe());
     app.useLogger(common_1.Logger);
     await app.listen(3000);
